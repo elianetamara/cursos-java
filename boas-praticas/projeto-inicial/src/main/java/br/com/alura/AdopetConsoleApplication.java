@@ -24,19 +24,24 @@ public class AdopetConsoleApplication {
                 String textoDigitado = new Scanner(System.in).nextLine();
                 opcaoEscolhida = Integer.parseInt(textoDigitado);
 
-                if (opcaoEscolhida == 1) {
-                    abrigoService.listaAbrigo();
-                } else if (opcaoEscolhida == 2) {
-                    abrigoService.cadastraAbrigo();
-                } else if (opcaoEscolhida == 3) {
-                    petService.listaPets();
-                } else if (opcaoEscolhida == 4) {
-                    petService.importaPets();
-                } else if (opcaoEscolhida == 5) {
-                    break;
-                } else {
-                    System.out.println("NÚMERO INVÁLIDO!");
-                    opcaoEscolhida = 0;
+                switch (opcaoEscolhida) {
+                    case 1:
+                        abrigoService.listaAbrigo();
+                        break;
+                    case 2:
+                        abrigoService.cadastraAbrigo();
+                        break;
+                    case 3:
+                        petService.listaPets();
+                        break;
+                    case 4:
+                        petService.importaPets();
+                        break;
+                    case 5:
+                        break;
+                    default:
+                        System.out.println("NÚMERO INVÁLIDO!");
+                        opcaoEscolhida = 0;
                 }
             }
             System.out.println("Finalizando o programa...");
