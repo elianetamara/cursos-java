@@ -11,7 +11,15 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-public class PetService extends AbstractService{
+import br.com.alura.client.ClientHttpConfiguration;
+
+public class PetService{
+
+  private ClientHttpConfiguration client;
+
+  public PetService(ClientHttpConfiguration client) {
+    this.client = client;
+  }
 
   public void importaPets() throws IOException, InterruptedException {
     System.out.println("Digite o id ou nome do abrigo:");
@@ -47,7 +55,7 @@ public class PetService extends AbstractService{
 
       String uri = "http://localhost:8080/abrigos/" + idOuNome + "/pets";
 
-      HttpResponse<String> response = requisicaoPost(uri, json);
+      HttpResponse<String> response = client.requisicaoPost(uri, json);
       int statusCode = response.statusCode();
       String responseBody = response.body();
       if (statusCode == 200) {
@@ -69,7 +77,7 @@ public class PetService extends AbstractService{
     String idOuNome = new Scanner(System.in).nextLine();
 
     String uri = "http://localhost:8080/abrigos/" + idOuNome + "/pets";
-    HttpResponse<String> response = requisicaoGet(uri);
+    HttpResponse<String> response = client.requisicaoGet(uri);
     int statusCode = response.statusCode();
     if (statusCode == 404 || statusCode == 500) {
       System.out.println("ID ou nome não cadastrado!");

@@ -12,7 +12,15 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-public class AbrigoService extends AbstractService{
+import br.com.alura.client.ClientHttpConfiguration;
+
+public class AbrigoService{
+
+  private ClientHttpConfiguration client;
+
+  public AbrigoService(ClientHttpConfiguration client) {
+    this.client = client;
+  }
 
   public void cadastraAbrigo() throws IOException, InterruptedException {
     System.out.println("Digite o nome do abrigo:");
@@ -28,7 +36,7 @@ public class AbrigoService extends AbstractService{
     json.addProperty("email", email);
 
     String uri = "http://localhost:8080/abrigos";
-    HttpResponse<String> response = requisicaoPost(uri, json);
+    HttpResponse<String> response = client.requisicaoPost(uri, json);
     int statusCode = response.statusCode();
     String responseBody = response.body();
     if (statusCode == 200) {
@@ -42,7 +50,7 @@ public class AbrigoService extends AbstractService{
 
   public void listaAbrigo() throws IOException, InterruptedException {
     String uri = "http://localhost:8080/abrigos";
-    HttpResponse<String> response = requisicaoGet(uri);
+    HttpResponse<String> response = client.requisicaoGet(uri);
     String responseBody = response.body();
     JsonArray jsonArray = JsonParser.parseString(responseBody).getAsJsonArray();
     System.out.println("Abrigos cadastrados:");

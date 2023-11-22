@@ -1,4 +1,4 @@
-package br.com.alura.service;
+package br.com.alura.client;
 
 import java.io.IOException;
 import java.net.URI;
@@ -8,9 +8,9 @@ import java.net.http.HttpResponse;
 
 import com.google.gson.JsonObject;
 
-public abstract class AbstractService {
-  
-  protected HttpResponse<String> requisicaoGet(String uri) throws IOException, InterruptedException {
+public class ClientHttpConfiguration {
+
+  public HttpResponse<String> requisicaoGet(String uri) throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(uri))
@@ -19,7 +19,7 @@ public abstract class AbstractService {
         return client.send(request, HttpResponse.BodyHandlers.ofString());
     }
 
-    protected HttpResponse<String> requisicaoPost(String uri, JsonObject json)
+    public HttpResponse<String> requisicaoPost(String uri, JsonObject json)
             throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
@@ -30,4 +30,5 @@ public abstract class AbstractService {
 
         return client.send(request, HttpResponse.BodyHandlers.ofString());
     }
+  
 }
