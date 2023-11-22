@@ -1,1 +1,1 @@
-Repositório dedicado aos projetos em java feitos para exercitar os conceitos de orientação a objetos
+Repositório dedicado aos projetos em java feitos para exercitar conceitos relacionados a linguagem
