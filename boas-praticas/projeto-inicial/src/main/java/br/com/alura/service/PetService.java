@@ -12,6 +12,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import br.com.alura.client.ClientHttpConfiguration;
+import br.com.alura.model.Pet;
 
 public class PetService{
 
@@ -45,17 +46,11 @@ public class PetService{
       String cor = campos[4];
       Float peso = Float.parseFloat(campos[5]);
 
-      JsonObject json = new JsonObject();
-      json.addProperty("tipo", tipo.toUpperCase());
-      json.addProperty("nome", nome);
-      json.addProperty("raca", raca);
-      json.addProperty("idade", idade);
-      json.addProperty("cor", cor);
-      json.addProperty("peso", peso);
+      Pet pet = new Pet(nome, tipo, raca, cor, idade, peso);
 
       String uri = "http://localhost:8080/abrigos/" + idOuNome + "/pets";
 
-      HttpResponse<String> response = client.requisicaoPost(uri, json);
+      HttpResponse<String> response = client.requisicaoPost(uri, pet);
       int statusCode = response.statusCode();
       String responseBody = response.body();
       if (statusCode == 200) {
