@@ -8,7 +8,7 @@ public class Abrigo {
   private String email;
   private Pet[] pets;
 
-  public Abrigo(){
+  public Abrigo() {
 
   }
 
@@ -36,6 +36,17 @@ public class Abrigo {
 
   public Pet[] getPets() {
     return this.pets;
+  }
+
+  public void setId(long id) {
+    this.id = id;
+  }
+
+  @Override
+  public String toString() {
+    return """
+        "id":%s,"nome":"%s","telefone":"%s","email":"%s"
+        """.formatted(this.id, this.nome, this.telefone, this.email);
   }
 
 }

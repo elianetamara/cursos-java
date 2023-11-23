@@ -7,15 +7,11 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import br.com.alura.client.ClientHttpConfiguration;
 import br.com.alura.model.Abrigo;
 
-public class AbrigoService{
+public class AbrigoService {
 
   private ClientHttpConfiguration client;
 
@@ -50,12 +46,21 @@ public class AbrigoService{
     String uri = "http://localhost:8080/abrigos";
     HttpResponse<String> response = client.requisicaoGet(uri);
     String responseBody = response.body();
-    Abrigo[] abrigos = new ObjectMapper().readValue(responseBody, Abrigo[].class); 
+    Abrigo[] abrigos = new ObjectMapper().readValue(responseBody, Abrigo[].class);
     List<Abrigo> listaAbrigo = Arrays.stream(abrigos).toList();
+    if (listaAbrigo.isEmpty()) {
+      System.out.println("Não há abrigos cadastrados");
+    } else {
+      abrigos(listaAbrigo);
+    }
+
+  }
+
+  private void abrigos(List<Abrigo> abrigos) {
     System.out.println("Abrigos cadastrados:");
-    for (Abrigo abrigo: listaAbrigo) {
+    for (Abrigo abrigo : abrigos) {
       long id = abrigo.getId();
-      String nome = abrigo.getNome();;
+      String nome = abrigo.getNome();
       System.out.println(id + " - " + nome);
     }
   }

@@ -9,10 +9,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import br.com.alura.client.ClientHttpConfiguration;
 import br.com.alura.model.Pet;
