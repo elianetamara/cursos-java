@@ -2,6 +2,7 @@ package br.com.alura.model;
 
 public class Pet {
 
+  private Long id;
   private String nome;
   private String tipo;
   private String raca;
@@ -17,4 +18,25 @@ public class Pet {
     this.idade = idade;
     this.peso = peso;
   }
+
+  public String getNome() {
+    return this.nome;
+  }
+
+  public long getId() {
+    return this.id;
+  }
+
+  public String getTipo() {
+    return this.tipo;
+  }
+
+  public int getIdade() {
+    return this.idade;
+  }
+
+  public String getRaca() {
+    return this.raca;
+  }
+
 }
