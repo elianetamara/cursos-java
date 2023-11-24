@@ -3,7 +3,7 @@ package br.com.alura.command;
 import br.com.alura.client.ClientHttpConfiguration;
 import br.com.alura.service.AbrigoService;
 
-public class ListarAbrigoCommand implements Command {
+public class ListaAbrigoCommand implements Command {
 
   @Override
   public void execute() {
