@@ -21,7 +21,7 @@ public class TutorService {
         boolean jaCadastrado = repository.existsByEmailOrTelefone(dto.email(), dto.telefone());
 
         if (jaCadastrado) {
-            throw  new ValidationException("Dados já cadastrados para outro tutor!");
+            throw new ValidationException("Dados já cadastrados para outro tutor!");
         } else {
             repository.save(new Tutor(dto));
             return ResponseEntity.ok().build();

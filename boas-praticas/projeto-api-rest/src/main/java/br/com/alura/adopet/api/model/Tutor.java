@@ -24,10 +24,10 @@ public class Tutor {
     @OneToMany(mappedBy = "tutor")
     private List<Adocao> adocoes;
 
-    public Tutor(){
+    public Tutor() {
     }
 
-    public Tutor(CadastroTutorDTO dto){
+    public Tutor(CadastroTutorDTO dto) {
         this.email = dto.email();
         this.nome = dto.nome();
         this.telefone = dto.telefone();
