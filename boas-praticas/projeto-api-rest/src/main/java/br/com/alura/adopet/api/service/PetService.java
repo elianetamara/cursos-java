@@ -1,6 +1,9 @@
 package br.com.alura.adopet.api.service;
 
+import br.com.alura.adopet.api.DTO.CadastroPetDTO;
 import br.com.alura.adopet.api.DTO.PetDTO;
+import br.com.alura.adopet.api.model.Abrigo;
+import br.com.alura.adopet.api.model.Pet;
 import br.com.alura.adopet.api.repository.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +25,7 @@ public class PetService {
                 .collect(Collectors.toList());
     }
 
-    /*public void cadastrarPet(Abrigo abrigo, CadastroPetDTO dto) {
+    public void cadastrarPet(Abrigo abrigo, CadastroPetDTO dto) {
         repository.save(new Pet(dto, abrigo));
-    }*/
+    }
 }
