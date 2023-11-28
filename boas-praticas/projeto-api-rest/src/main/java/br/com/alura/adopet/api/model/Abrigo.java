@@ -2,7 +2,6 @@ package br.com.alura.adopet.api.model;
 
 import br.com.alura.adopet.api.DTO.CadastroAbrigoDTO;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 
 import java.util.List;
 import java.util.Objects;
@@ -19,7 +18,6 @@ public class Abrigo {
 
     private String telefone;
 
-    @Email
     private String email;
 
     @OneToMany(mappedBy = "abrigo", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
