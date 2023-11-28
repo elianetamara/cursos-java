@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class PetComAdocaoAndamentoValidator{
+public class PetComAdocaoAndamentoValidator implements SolicitacaoAdocaoValidator {
 
     @Autowired
     private PetRepository petRepository;

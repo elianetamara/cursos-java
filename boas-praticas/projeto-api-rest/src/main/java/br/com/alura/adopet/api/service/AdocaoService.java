@@ -1,9 +1,9 @@
 package br.com.alura.adopet.api.service;
 
 import br.com.alura.adopet.api.DTO.*;
-import br.com.alura.adopet.api.exception.ValidacaoException;
 import br.com.alura.adopet.api.model.*;
 import br.com.alura.adopet.api.repository.*;
+import br.com.alura.adopet.api.validator.SolicitacaoAdocaoValidator;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,11 +28,14 @@ public class AdocaoService {
     @Autowired
     private EmailService emailService;
 
+    @Autowired
+    private List<SolicitacaoAdocaoValidator> validacoes;
+
     public void solicitar(@RequestBody @Valid SolicitacaoAdocaoDTO dto) {
         Pet pet = petRepository.getReferenceById(dto.idPet());
         Tutor tutor = tutorRepository.getReferenceById(dto.idTutor());
 
-       //validacoes
+        validacoes.forEach(v -> v.validar(dto));
 
         Adocao adocao = new Adocao();
         adocao.setData(LocalDateTime.now());
