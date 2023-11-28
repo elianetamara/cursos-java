@@ -2,8 +2,8 @@ package br.com.alura.adopet.api.service;
 
 import br.com.alura.adopet.api.DTO.PetDTO;
 import br.com.alura.adopet.api.repository.PetRepository;
-import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;

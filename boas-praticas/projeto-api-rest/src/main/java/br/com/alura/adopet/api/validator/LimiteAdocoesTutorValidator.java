@@ -15,7 +15,7 @@ public class LimiteAdocoesTutorValidator implements SolicitacaoAdocaoValidator {
 
     public void validar(SolicitacaoAdocaoDTO dto) {
         int adocoes = adocaoRepository.countAdocaoByTutorIdAndStatus(dto.idTutor(), StatusAdocao.APROVADO);
-        if(adocoes >= 5){
+        if (adocoes >= 5) {
             throw new ValidacaoException("Tutor chegou ao limite máximo de 5 adoções!");
         }
     }

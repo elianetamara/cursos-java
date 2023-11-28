@@ -36,7 +36,8 @@ public class Adocao {
         this.data = LocalDateTime.now();
     }
 
-    public Adocao(){}
+    public Adocao() {
+    }
 
     public void marcarComoAprovada() {
         this.status = StatusAdocao.APROVADO;
