@@ -36,7 +36,8 @@ public class Adocao {
         this.data = LocalDateTime.now();
     }
 
-    public Adocao(){}
+    public Adocao() {
+    }
 
     @Override
     public boolean equals(Object o) {

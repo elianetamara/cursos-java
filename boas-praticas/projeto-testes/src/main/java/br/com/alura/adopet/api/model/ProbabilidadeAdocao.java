@@ -4,6 +4,6 @@ public enum ProbabilidadeAdocao {
 
     BAIXA,
     MEDIA,
-    ALTA;
+    ALTA
 
 }

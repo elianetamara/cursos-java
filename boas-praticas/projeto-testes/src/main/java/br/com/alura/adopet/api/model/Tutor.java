@@ -23,9 +23,10 @@ public class Tutor {
     private String email;
 
     @OneToMany(mappedBy = "tutor")
-    private List<Adocao> adocoes = new ArrayList<>();
+    private final List<Adocao> adocoes = new ArrayList<>();
 
-    public Tutor() {}
+    public Tutor() {
+    }
 
     public Tutor(CadastroTutorDto dto) {
         this.nome = dto.nome();
