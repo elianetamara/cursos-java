@@ -10,7 +10,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 @SpringBootTest
@@ -45,12 +45,12 @@ class AdocaoControllerTest {
     void solicitaSemErros() throws Exception {
         //ARRANGE
         String json = """
-            {
-                "idPet": 1,
-                "idTutor": 1,
-                "motivo": "Motivo qualquer"
-            }
-            """;
+                {
+                    "idPet": 1,
+                    "idTutor": 1,
+                    "motivo": "Motivo qualquer"
+                }
+                """;
 
         //ACT
         var response = mvc.perform(

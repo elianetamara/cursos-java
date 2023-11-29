@@ -12,18 +12,14 @@ import java.util.Objects;
 @Table(name = "tutores")
 public class Tutor {
 
+    @OneToMany(mappedBy = "tutor")
+    private final List<Adocao> adocoes = new ArrayList<>();
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nome;
-
     private String telefone;
-
     private String email;
-
-    @OneToMany(mappedBy = "tutor")
-    private final List<Adocao> adocoes = new ArrayList<>();
 
     public Tutor() {
     }
