@@ -41,7 +41,7 @@ class CalculadoraProbabilidadeAdocaoTest {
                 4.0f
         ), abrigo);
 
-        Assertions.assertEquals(ProbabilidadeAdocao.ALTA, calculadora.calcular(pet));
+        assertEquals(ProbabilidadeAdocao.ALTA, calculadora.calcular(pet));
     }
 
     @Test
@@ -63,6 +63,6 @@ class CalculadoraProbabilidadeAdocaoTest {
                 4.0f
         ), abrigo);
 
-        Assertions.assertEquals(ProbabilidadeAdocao.MEDIA, calculadora.calcular(pet));
+        assertEquals(ProbabilidadeAdocao.MEDIA, calculadora.calcular(pet));
     }
 }
