@@ -21,6 +21,30 @@
 
 ---
 
+- `@Table`: usada para especificar a tabela da entidade
+- `@Entity`: denota que a classe representa um tipo de entidade
+- `@GeneratedValue`: indica que o valor do identificador é gerado automaticamente usando uma coluna de identidade, uma sequência de banco de dados ou um gerador de tabelas
+- `@Embedded`: especifica que um atributo da entidade representa um tipo incorporável
+- `@Embeddable`: usada para especificar tipos incorporáveis, estes que não tem identidade e são gerenciados por sua entidade proprietária.
+
+---
+
+- `@Getter`/`@Setter`: fornecem métodos getters e setters dos atributos
+  - podem ter um parâmetro que indica o tipo de acesso aos dados
+  `@Getter(AccessLevel.PROTECTED)`
+- `@NoArgsConstructor`: criação de um construtor vazio
+- `@AllArgsConstructor`: criação de um construtor com todos os atributos
+  - possível definir o tipo de acesso ou so o construtor é estático
+  `@AllArgsConstructor(AccessLevel.PRIVATE)`
+  `@AllArgsConstructor(staticName = "of")`
+- `@EqualsAndHashCode`: gera os métodos `equals()` e `hachCode()`
+  - possível personalizar os atributos que serão validados
+  `@EqualsAndHashCode(exclude={"field1","field2"})`
+  `@EqualsAndHashCode(of = "field")`
+- `@Data`: combinação de `@ToString, @EqualsAndHashCode, @Getter e @Setter`, e também tem a geração de um construtor público com campos `@NonNull` ou `final` como parâmetros
+
+---
+
 :pencil2: CORS (Cross-Origin Resource Sharing)
 
 - usado para adicionar cabeçalhos HTTP informando aos navegadores se um determinado recurso pode ou não ser acessado, é chamada de requisição cross-origin HTTP
