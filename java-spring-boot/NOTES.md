@@ -37,4 +37,13 @@
 - permite representar uma classe imutável, com atributos, construtor e métodos de leitura, de maneira mais simples.
   - ideal para representar classes DTO, já que é usada para representar dados que serão recebidos/devolvidos pela API, sem algum comportamento.
 
+:pencil2: Arquivo de propriedades
+
+- por padrão, o spring boot acessa configurações definidas no arquivo _application.properties_, que usa um formato de _chave=valor_, onde cada linha é uma configuração única
+- _YAML Configuration_: utilizado para definir dados de configuração hierárquica, facilitando armazenamento de variáveis de configuração de ambiente
+
+:pencil2: [12 Factor App](https://12factor.net/)
+
+- metodologia que define 12 boas práticas para uma aplicação moderna, escalável e de manutenção simples
+
 ---
