@@ -87,4 +87,8 @@
 - _Repository_: também lida com dados e oculta consultas, porém ele se encontra em um nível mais alto, próximo da lógica de negócios da aplicação
   - não tem tomada de decisões, aplicação de algoritmos de transformação de dados ou serviços a outras camadas ou módulos da aplicação
 
+#### :pencil2: [Bean Validation](https://jakarta.ee/specifications/bean-validation/3.0/jakarta-bean-validation-spec-3.0.html#builtinconstraints)
+
+- composto por diversas anotações para realizar validações de dados
+
 ---
