@@ -14,9 +14,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MockMvcResultMatchersDsl;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -45,7 +44,7 @@ class AbrigoControllerTest {
                 get("/abrigos")
         ).andReturn().getResponse();
         //ASSERT
-        assertEquals(200,response.getStatus());
+        assertEquals(200, response.getStatus());
     }
 
     @Test
@@ -66,7 +65,7 @@ class AbrigoControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
         ).andReturn().getResponse();
         //ASSERT
-        assertEquals(200,response.getStatus());
+        assertEquals(200, response.getStatus());
     }
 
     @Test
@@ -87,7 +86,7 @@ class AbrigoControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
         ).andReturn().getResponse();
         //ASSERT
-        assertEquals(400,response.getStatus());
+        assertEquals(400, response.getStatus());
     }
 
     @Test
@@ -97,10 +96,10 @@ class AbrigoControllerTest {
         String id = "1";
         //ACT
         MockHttpServletResponse response = mockMvc.perform(
-                get("/abrigos/{id}/pets",id)
+                get("/abrigos/{id}/pets", id)
         ).andReturn().getResponse();
         //ASSERT
-        assertEquals(200,response.getStatus());
+        assertEquals(200, response.getStatus());
     }
 
     @Test
@@ -111,10 +110,10 @@ class AbrigoControllerTest {
         given(abrigoService.listarPetsDoAbrigo(id)).willThrow(ValidacaoException.class);
         //ACT
         MockHttpServletResponse response = mockMvc.perform(
-                get("/abrigos/{id}/pets",id)
+                get("/abrigos/{id}/pets", id)
         ).andReturn().getResponse();
         //ASSERT
-        assertEquals(404,response.getStatus());
+        assertEquals(404, response.getStatus());
     }
 
     @Test
@@ -124,10 +123,10 @@ class AbrigoControllerTest {
         String nome = "Abrigo feliz";
         //ACT
         MockHttpServletResponse response = mockMvc.perform(
-                get("/abrigos/{nome}/pets",nome)
+                get("/abrigos/{nome}/pets", nome)
         ).andReturn().getResponse();
         //ASSERT
-        assertEquals(200,response.getStatus());
+        assertEquals(200, response.getStatus());
     }
 
     @Test
@@ -138,10 +137,10 @@ class AbrigoControllerTest {
         given(abrigoService.listarPetsDoAbrigo(nome)).willThrow(ValidacaoException.class);
         //ACT
         MockHttpServletResponse response = mockMvc.perform(
-                get("/abrigos/{nome}/pets",nome)
+                get("/abrigos/{nome}/pets", nome)
         ).andReturn().getResponse();
         //ASSERT
-        assertEquals(404,response.getStatus());
+        assertEquals(404, response.getStatus());
     }
 
     @Test
@@ -162,12 +161,12 @@ class AbrigoControllerTest {
         String abrigoId = "1";
         //ACT
         MockHttpServletResponse response = mockMvc.perform(
-                post("/abrigos/{abrigoId}/pets",abrigoId)
+                post("/abrigos/{abrigoId}/pets", abrigoId)
                         .content(json)
                         .contentType(MediaType.APPLICATION_JSON)
         ).andReturn().getResponse();
         //ASSERT
-        assertEquals(200,response.getStatus());
+        assertEquals(200, response.getStatus());
     }
 
     @Test
@@ -189,12 +188,12 @@ class AbrigoControllerTest {
         given(abrigoService.carregarAbrigo(abrigoId)).willThrow(ValidacaoException.class);
         //ACT
         MockHttpServletResponse response = mockMvc.perform(
-                post("/abrigos/{abrigoId}/pets",abrigoId)
+                post("/abrigos/{abrigoId}/pets", abrigoId)
                         .content(json)
                         .contentType(MediaType.APPLICATION_JSON)
         ).andReturn().getResponse();
         //ASSERT
-        assertEquals(404,response.getStatus());
+        assertEquals(404, response.getStatus());
     }
 
     @Test
@@ -214,12 +213,12 @@ class AbrigoControllerTest {
         String abrigoNome = "Abrigo feliz";
         //ACT
         MockHttpServletResponse response = mockMvc.perform(
-                post("/abrigos/{abrigoNome}/pets",abrigoNome)
+                post("/abrigos/{abrigoNome}/pets", abrigoNome)
                         .content(json)
                         .contentType(MediaType.APPLICATION_JSON)
         ).andReturn().getResponse();
         //ASSERT
-        assertEquals(200,response.getStatus());
+        assertEquals(200, response.getStatus());
     }
 
     @Test
@@ -240,11 +239,11 @@ class AbrigoControllerTest {
         given(abrigoService.carregarAbrigo(abrigoNome)).willThrow(ValidacaoException.class);
         //ACT
         MockHttpServletResponse response = mockMvc.perform(
-                post("/abrigos/{abrigoNome}/pets",abrigoNome)
+                post("/abrigos/{abrigoNome}/pets", abrigoNome)
                         .content(json)
                         .contentType(MediaType.APPLICATION_JSON)
         ).andReturn().getResponse();
         //ASSERT
-        assertEquals(404,response.getStatus());
+        assertEquals(404, response.getStatus());
     }
 }

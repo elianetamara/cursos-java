@@ -78,7 +78,7 @@ class AdocaoServiceTest {
     @DisplayName("Solicita adoção corretamente")
     void solicitaSemErros() {
         //ARRANGE
-        this.dto = new SolicitacaoAdocaoDto(10l, 20l, "motivo qualquer");
+        this.dto = new SolicitacaoAdocaoDto(10L, 20L, "motivo qualquer");
         given(petRepository.getReferenceById(dto.idPet())).willReturn(pet);
         given(tutorRepository.getReferenceById(dto.idTutor())).willReturn(tutor);
         given(pet.getAbrigo()).willReturn(abrigo);
@@ -96,7 +96,7 @@ class AdocaoServiceTest {
     @DisplayName("Chama validadores ao solicitar adoção")
     void solicitaChamandoValidadores() {
         //ARRANGE
-        this.dto = new SolicitacaoAdocaoDto(10l, 20l, "motivo qualquer");
+        this.dto = new SolicitacaoAdocaoDto(10L, 20L, "motivo qualquer");
         given(petRepository.getReferenceById(dto.idPet())).willReturn(pet);
         given(tutorRepository.getReferenceById(dto.idTutor())).willReturn(tutor);
         given(pet.getAbrigo()).willReturn(abrigo);
@@ -113,7 +113,7 @@ class AdocaoServiceTest {
     @DisplayName("Envia email ao solicitar adoção")
     void solicitaEnviandoEmail() {
         //ARRANGE
-        SolicitacaoAdocaoDto dto = new SolicitacaoAdocaoDto(10l, 30l, "motivo teste");
+        SolicitacaoAdocaoDto dto = new SolicitacaoAdocaoDto(10L, 30L, "motivo teste");
         given(petRepository.getReferenceById(dto.idPet())).willReturn(pet);
         given(tutorRepository.getReferenceById(dto.idTutor())).willReturn(tutor);
         given(pet.getAbrigo()).willReturn(abrigo);
@@ -125,7 +125,7 @@ class AdocaoServiceTest {
         then(emailService).should().enviarEmail(
                 adocao.getPet().getAbrigo().getEmail(),
                 "Solicitação de adoção",
-                "Olá " +adocao.getPet().getAbrigo().getNome() +"!\n\nUma solicitação de adoção foi registrada hoje para o pet: " +adocao.getPet().getNome() +". \nFavor avaliar para aprovação ou reprovação."
+                "Olá " + adocao.getPet().getAbrigo().getNome() + "!\n\nUma solicitação de adoção foi registrada hoje para o pet: " + adocao.getPet().getNome() + ". \nFavor avaliar para aprovação ou reprovação."
         );
     }
 
@@ -149,7 +149,7 @@ class AdocaoServiceTest {
 
     @Test
     @DisplayName("Envia email ao aprovar uma adoção")
-    void aprovaEnviandoEmail(){
+    void aprovaEnviandoEmail() {
         //ARRANGE
         given(repository.getReferenceById(aprovacaoAdocaoDto.idAdocao())).willReturn(adocao);
         given(adocao.getPet()).willReturn(pet);
@@ -164,13 +164,13 @@ class AdocaoServiceTest {
         then(emailService).should().enviarEmail(
                 adocao.getPet().getAbrigo().getEmail(),
                 "Adoção aprovada",
-                "Parabéns " +adocao.getTutor().getNome() +"!\n\nSua adoção do pet " +adocao.getPet().getNome() +", solicitada em " +adocao.getData().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")) +", foi aprovada.\nFavor entrar em contato com o abrigo " +adocao.getPet().getAbrigo().getNome() +" para agendar a busca do seu pet."
+                "Parabéns " + adocao.getTutor().getNome() + "!\n\nSua adoção do pet " + adocao.getPet().getNome() + ", solicitada em " + adocao.getData().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")) + ", foi aprovada.\nFavor entrar em contato com o abrigo " + adocao.getPet().getAbrigo().getNome() + " para agendar a busca do seu pet."
         );
     }
 
     @Test
     @DisplayName("Reprova uma adoção")
-    void reprovaAdocao(){
+    void reprovaAdocao() {
         //ARRANGE
         given(repository.getReferenceById(aprovacaoAdocaoDto.idAdocao())).willReturn(adocao);
         given(adocao.getPet()).willReturn(pet);
@@ -183,12 +183,12 @@ class AdocaoServiceTest {
         service.reprovar(reprovacaoAdocaoDto);
         //ASSERT
         then(adocao).should().marcarComoReprovada(reprovacaoAdocaoDto.justificativa());
-        assertEquals(StatusAdocao.REPROVADO,adocao.getStatus());
+        assertEquals(StatusAdocao.REPROVADO, adocao.getStatus());
     }
 
     @Test
     @DisplayName("Envia email ao reprovar uma adoção")
-    void reprovaEnviandoEmail(){
+    void reprovaEnviandoEmail() {
         //ARRANGE
         given(repository.getReferenceById(aprovacaoAdocaoDto.idAdocao())).willReturn(adocao);
         given(adocao.getPet()).willReturn(pet);
@@ -203,7 +203,7 @@ class AdocaoServiceTest {
         then(emailService).should().enviarEmail(
                 adocao.getPet().getAbrigo().getEmail(),
                 "Solicitação de adoção",
-                "Olá " +adocao.getTutor().getNome() +"!\n\nInfelizmente sua adoção do pet " +adocao.getPet().getNome() +", solicitada em " +adocao.getData().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")) +", foi reprovada pelo abrigo " +adocao.getPet().getAbrigo().getNome() +" com a seguinte justificativa: " +adocao.getJustificativaStatus()
+                "Olá " + adocao.getTutor().getNome() + "!\n\nInfelizmente sua adoção do pet " + adocao.getPet().getNome() + ", solicitada em " + adocao.getData().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")) + ", foi reprovada pelo abrigo " + adocao.getPet().getAbrigo().getNome() + " com a seguinte justificativa: " + adocao.getJustificativaStatus()
         );
     }
 }
