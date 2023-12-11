@@ -41,8 +41,8 @@ class PetServiceTest {
     @DisplayName("")
     void cadastrarPet() {
         //ACT
-        service.cadastrarPet(abrigo,cadastroPetDto);
+        service.cadastrarPet(abrigo, cadastroPetDto);
         //ASSERT
-        then(repository).should().save(new Pet(cadastroPetDto,abrigo));
+        then(repository).should().save(new Pet(cadastroPetDto, abrigo));
     }
 }
