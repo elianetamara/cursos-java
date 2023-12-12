@@ -98,10 +98,8 @@
 
 ---
 
-| :link: | :link: |
-|---|---|
-| [Spring Boot](https://spring.io/projects/spring-boot) | [Spring Initializr](https://start.spring.io/) |
-| [Bean Validation](https://jakarta.ee/specifications/bean-validation/3.0/jakarta-bean-validation-spec-3.0.html#builtinconstraints) | [12 Factor App](https://12factor.net/) |
-| [Java Record](https://docs.oracle.com/en/java/javase/16/language/records.html) | [PageableDefault](https://www.linkedin.com/pulse/spring-boot-e-data-performance-com-pagina%C3%A7%C3%A3o-cache-nick-kras-borges/?originalSubdomain=pt)
+| :link: | :link: | :link: | :link: |:link: | :link: |
+|---|---|---|---|---|---|
+| [Spring Boot](https://spring.io/projects/spring-boot) | [Spring Initializr](https://start.spring.io/) | [Bean Validation](https://jakarta.ee/specifications/bean-validation/3.0/jakarta-bean-validation-spec-3.0.html#builtinconstraints) | [12 Factor App](https://12factor.net/) | [Java Record](https://docs.oracle.com/en/java/javase/16/language/records.html) | [PageableDefault](https://www.linkedin.com/pulse/spring-boot-e-data-performance-com-pagina%C3%A7%C3%A3o-cache-nick-kras-borges/?originalSubdomain=pt)
 
 ---
