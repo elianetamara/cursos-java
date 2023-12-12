@@ -7,8 +7,8 @@
   - _MVC_: desenvolvimento de aplicações Web e API's Rest
   - _Security_: lidar com controle de autenticação e autorização da aplicação
   - _Transactions_: gerenciar o controle transacional.
-- _[Spring Boot](https://spring.io/projects/spring-boot)_: módulo do Spring com o propósito de agilizar a criação de um projeto com o Spring como framework, e simplificar as configurações de seus módulos
-- _[Spring Initializr](https://start.spring.io/)_: ferramenta pra criação de projeto com estrutura inicial necessária
+- _Spring Boot_: módulo do Spring com o propósito de agilizar a criação de um projeto com o Spring como framework, e simplificar as configurações de seus módulos
+- _Spring Initializr_: ferramenta pra criação de projeto com estrutura inicial necessária
 - _Spring Boot DevTools_: módulo para não precisar reiniciar a aplicação a cada alteração feita no código, elas subirão automaticamente.
 - _Lombok_: ferramenta para gerar códigos, como getters e setters, baseado em anotações
 - _Spring Web_: se faz necessaŕio o módulo web para trabalhar com uma API Rest
@@ -66,7 +66,7 @@
   - duas URLs compartilham a mesma origem se o protocolo, porta (caso especificado) e host são os mesmos
   - em casos de origens diferentes, a API precisa retornar a header _Access-Control-Allow-Origin_, para informar as origens que serão permitidas para consumir a API
 
-#### :pencil2: [Java Record](https://docs.oracle.com/en/java/javase/16/language/records.html)
+#### :pencil2: Java Record
 
 - permite representar uma classe imutável, com atributos, construtor e métodos de leitura, de maneira mais simples.
   - ideal para representar classes DTO, já que é usada para representar dados que serão recebidos/devolvidos pela API, sem algum comportamento.
@@ -76,10 +76,6 @@
 - por padrão, o spring boot acessa configurações definidas no arquivo _application.properties_, que usa um formato de _chave=valor_, onde cada linha é uma configuração única
 - _YAML Configuration_: utilizado para definir dados de configuração hierárquica, facilitando armazenamento de variáveis de configuração de ambiente
 
-#### :pencil2: [12 Factor App](https://12factor.net/)
-
-- metodologia que define 12 boas práticas para uma aplicação moderna, escalável e de manutenção simples
-
 #### :pencil2: Padrão DAO vs Padrão Repository
 
 - _DAO (Data Access Object)_: utilizado para persistência de dados, com o objetivo de separar regras de negócio de regras de acesso a banco de dados
@@ -87,8 +83,25 @@
 - _Repository_: também lida com dados e oculta consultas, porém ele se encontra em um nível mais alto, próximo da lógica de negócios da aplicação
   - não tem tomada de decisões, aplicação de algoritmos de transformação de dados ou serviços a outras camadas ou módulos da aplicação
 
-#### :pencil2: [Bean Validation](https://jakarta.ee/specifications/bean-validation/3.0/jakarta-bean-validation-spec-3.0.html#builtinconstraints)
+#### :pencil2: Padrão DTO (Data Transfer Object)
 
-- composto por diversas anotações para realizar validações de dados
+- usado para representar dados que eram enviados e recebidos entre aplicações cliente e servidor, pode ser utilizado quando não queremos expor todos os atributos de alguma entidade do projeto
+
+#### :pencil2: Mass Assignment Attack
+
+- ocorre quando um usuário é capaz de inicializar/substituir parâmetros que não deveriam ser modificados na aplicação. Refere-se a injetar um conjunto de valores diretamente em um objeto, que sem a devida validação pode causar sérios problemas
+
+#### :pencil2: PUT vs PATCH
+
+- _PUT_: substitui todos os atuais dados de um recurso pelos dados passados na requisição, é feita a atualização total do recurso em uma requisição
+- _PATCH_: aplica modificações parciais em um recurso, o que torna as atualizações mais flexíveis
+
+---
+
+| :link: | :link: |
+|---|---|
+| [Spring Boot](https://spring.io/projects/spring-boot) | [Spring Initializr](https://start.spring.io/) |
+| [Bean Validation](https://jakarta.ee/specifications/bean-validation/3.0/jakarta-bean-validation-spec-3.0.html#builtinconstraints) | [12 Factor App](https://12factor.net/) |
+| [Java Record](https://docs.oracle.com/en/java/javase/16/language/records.html) | [PageableDefault](https://www.linkedin.com/pulse/spring-boot-e-data-performance-com-pagina%C3%A7%C3%A3o-cache-nick-kras-borges/?originalSubdomain=pt)
 
 ---
