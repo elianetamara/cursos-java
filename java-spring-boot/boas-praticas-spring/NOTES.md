@@ -22,8 +22,11 @@
 - `@Service`: serve para o Spring identificar essa classe como um componente do tipo serviço
 - `@Configuration`:
 - `@EnableWebSecurity`:
+- `@Bean`: serve para exportar uma classe para o Spring, fazendo com que ele consiga carregá-la e realizar a sua injeção de dependência em outras classes
 - _SecurityFilterChain_: objeto usado para configurar o processo de autenticação e de autorização
-- `@Bean`:
+- _AuthenticationManager_:
+  - a classe _AuthenticationManager_ é do Spring. Porém, ele não injeta de forma automática o objeto _AuthenticationManager_, é preciso configurar isso no Spring Security
+- _UserDetails_:
 
 ---
 
