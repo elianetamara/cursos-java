@@ -7,6 +7,10 @@
 - Não é uma boa prática retornarmos um stack trace para o usuário da API, acaba por expor informações sensíveis e desnecessárias, podendo se tornar uma brecha de segurança
 - Por padrão, exceções não tratadas no código são interpretadas pelo Spring Boot como erro 500
 - Em métodos de atualização dos dados, é interessante devolver a informação atualizada
+- _Spring Security_: módulo para tratar de segurança do Spring, tendo como objetivos a autenticação, autorização e proteção contra ataques
+- Autenticação em aplicação Web (Stateful) != Autenticação em API Rest (Stateless)
+  - Stateful: cada vez que um usuário efetua o login em uma aplicação Web, o servidor armazena o estado, cria as sessões e consegue identificar o usuário nas próximas requisições
+  - Stateless: quando o cliente da API dispara uma requisição, o servidor processa e devolve a resposta. Na próxima requisição, o servidor não identifica quem está enviando, não armazena estado
 
 ---
 
@@ -45,7 +49,7 @@
 
 ---
 
-| :link:                                                                                                                          | :link: | :link:                         | :link: |:link: | :link: |
-|---------------------------------------------------------------------------------------------------------------------------------|-------|--------------------------------|--------|---|---|
-| [ResponseEntity](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/ResponseEntity.html) | [UriComponentsBuilder](https://www.baeldung.com/spring-uricomponentsbuilder)  | [HTTP Dogs](https://http.dog/) | [Common Application Properties](https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html) |  |
+| :link:                                                                                                                          | :link: | :link:                         | :link: | :link:                                                                          | :link: |
+|---------------------------------------------------------------------------------------------------------------------------------|-------|--------------------------------|--------|---------------------------------------------------------------------------------|---|
+| [ResponseEntity](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/ResponseEntity.html) | [UriComponentsBuilder](https://www.baeldung.com/spring-uricomponentsbuilder)  | [HTTP Dogs](https://http.dog/) | [Common Application Properties](https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html) | [Tipos de autenticação](https://www.alura.com.br/artigos/tipos-de-autenticacao) | |
 ---
