@@ -34,6 +34,17 @@
 
 ---
 
+#### :pencil2: personalizando mensagens de erro
+
+- o Bean Validation possui uma mensagem de erro padrão para cada uma de suas anotações, porém é possível pode personalizar estas mensagens
+  - uma das maneiras é adicionar o atributo message nas próprias anotações de validação
+    - `@NotBlank(message = "Nome é obrigatório")`
+  - outra maneira é isolar as mensagens em um arquivo de propriedades, com nome _ValidationMessages.properties_, criado no diretório _src/main/resources_
+    - `nome.obrigatorio=Nome é obrigatório`
+    - nas anotações, indicar a chave das propriedades pelo próprio atributo: `@NotBlank(message = "{nome.obrigatorio}")`
+
+---
+
 | :link:                                                                                                                          | :link: | :link:                         | :link: |:link: | :link: |
 |---------------------------------------------------------------------------------------------------------------------------------|-------|--------------------------------|--------|---|---|
 | [ResponseEntity](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/ResponseEntity.html) | [UriComponentsBuilder](https://www.baeldung.com/spring-uricomponentsbuilder)  | [HTTP Dogs](https://http.dog/) | [Common Application Properties](https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html) |  |
