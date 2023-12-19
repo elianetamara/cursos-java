@@ -22,11 +22,14 @@
 - `@Service`: serve para o Spring identificar essa classe como um componente do tipo serviço
 - `@Configuration`:
 - `@EnableWebSecurity`:
+- `@Component`:
+- `@Secured("ROLE")`:
 - `@Bean`: serve para exportar uma classe para o Spring, fazendo com que ele consiga carregá-la e realizar a sua injeção de dependência em outras classes
 - _SecurityFilterChain_: objeto usado para configurar o processo de autenticação e de autorização
 - _AuthenticationManager_:
   - a classe _AuthenticationManager_ é do Spring. Porém, ele não injeta de forma automática o objeto _AuthenticationManager_, é preciso configurar isso no Spring Security
 - _UserDetails_:
+- _DispatcherServlet_: seu trabalho é pegar uma URI requisitada e encontrar a combinação certa do manipulador (métodos nos controllers) e views que combinam para o formulário/recurso ser encontrado naquela localização
 
 ---
 
@@ -64,6 +67,10 @@
 `public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {`
 `return http.csrf().disable()`
 `.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)`
+`.and().authorizeRequests()`
+`.antMatchers(HttpMethod.POST, "/login").permitAll()`
+`.anyRequest().authenticated()`
+`.and().addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)`
 `.and().build();`
 `}`
 
@@ -72,11 +79,25 @@
 - `sessionManagement()` -> para mostrar o gerenciamento da sessão 
 - `sessionCreationPolicy(SessionCreationPolicy.XXX)` -> qual a política de criação da sessão
 - `and().build()` -> criar o objeto _SecurityFilterChain_
+- `authorizeRequests()`: configura autorização das requisições
+- `.antMatchers(HttpMethod.POST, "/login").permitAll()`: diz para o Spring que a única requisição que deve ser liberada é a de login
+- `.anyRequest().authenticated()`: define o controle de acesso na API
+- `.addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)`: ajusta ordem de aplicação dos filtros
 
 ---
 
-| :link:                                                                                                                          | :link:                                                                       | :link:                         | :link: | :link:                                                                          | :link: |
-|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|--------------------------------|--------|---------------------------------------------------------------------------------|--------|
-| [ResponseEntity](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/ResponseEntity.html) | [UriComponentsBuilder](https://www.baeldung.com/spring-uricomponentsbuilder) | [HTTP Dogs](https://http.dog/) | [Common Application Properties](https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html) | [Tipos de autenticação](https://www.alura.com.br/artigos/tipos-de-autenticacao) | [Métodos de consulta JPA](https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html)   |
-| [Auth0 jwt](https://github.com/auth0/java-jwt)                                                                                  | [JWT](https://jwt.io/introduction)                                           |
+#### :pencil2: Filters
+
+- um dos recursos que fazem parte da especificação de Servlets, que padroniza o tratamento de requisições e respostas em aplicações Web no Java
+  - útil para isolar códigos de infraestrutura da aplicação
+  - interface _Filter_ (pacote jakarta.servlet)
+    - O método doFilter é chamado pelo servidor automaticamente, sempre que o filter tiver que ser executado, e a chamada ao método `filterChain.doFilter` indica que os próximos, caso existam, podem ser executados
+    - `@WebFilter`: indica ao servidor quais requisições esse filter deve ser chamado, com base na URL da requisição
+
+---
+
+| :link:                                                                                                                          | :link:                                                                       | :link:                                                                                                         | :link: | :link:                                                                          | :link: |
+|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|--------|---------------------------------------------------------------------------------|--------|
+| [ResponseEntity](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/ResponseEntity.html) | [UriComponentsBuilder](https://www.baeldung.com/spring-uricomponentsbuilder) | [HTTP Dogs](https://http.dog/)                                                                                 | [Common Application Properties](https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html) | [Tipos de autenticação](https://www.alura.com.br/artigos/tipos-de-autenticacao) | [Métodos de consulta JPA](https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html)   |
+| [Auth0 jwt](https://github.com/auth0/java-jwt)                                                                                  | [JWT](https://jwt.io/introduction)                                           | [Method Security](https://docs.spring.io/spring-security/reference/servlet/authorization/method-security.html) |
 ---
