@@ -15,10 +15,9 @@ import java.time.ZoneOffset;
 @Service
 public class TokenService {
 
+    private static final String ISSUER = "API Voll.med";
     @Value("${api.security.token.secret}")
     private String secret;
-
-    private static final String ISSUER = "API Voll.med";
 
     public String gerarToken(Usuario usuario) {
         try {
@@ -28,7 +27,7 @@ public class TokenService {
                     .withSubject(usuario.getLogin())
                     .withExpiresAt(dataExpiracao())
                     .sign(algoritmo);
-        } catch (JWTCreationException exception){
+        } catch (JWTCreationException exception) {
             throw new RuntimeException("erro ao gerrar token jwt", exception);
         }
     }
