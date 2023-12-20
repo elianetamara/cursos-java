@@ -76,7 +76,7 @@
 
 - `http.csrf().disable()` -> desabilitar proteção contra-ataques do tipo CSRF (Cross-Site Request Forgery)
   - com autenticação via tokens, o próprio token é uma proteção contra esses tipos de ataques
-- `sessionManagement()` -> para mostrar o gerenciamento da sessão 
+- `sessionManagement()` -> para mostrar o gerenciamento da sessão
 - `sessionCreationPolicy(SessionCreationPolicy.XXX)` -> qual a política de criação da sessão
 - `and().build()` -> criar o objeto _SecurityFilterChain_
 - `authorizeRequests()`: configura autorização das requisições
@@ -96,8 +96,8 @@
 
 ---
 
-| :link:                                                                                                                          | :link:                                                                       | :link:                                                                                                         | :link: | :link:                                                                          | :link: |
-|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|--------|---------------------------------------------------------------------------------|--------|
-| [ResponseEntity](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/ResponseEntity.html) | [UriComponentsBuilder](https://www.baeldung.com/spring-uricomponentsbuilder) | [HTTP Dogs](https://http.dog/)                                                                                 | [Common Application Properties](https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html) | [Tipos de autenticação](https://www.alura.com.br/artigos/tipos-de-autenticacao) | [Métodos de consulta JPA](https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html)   |
-| [Auth0 jwt](https://github.com/auth0/java-jwt)                                                                                  | [JWT](https://jwt.io/introduction)                                           | [Method Security](https://docs.spring.io/spring-security/reference/servlet/authorization/method-security.html) |
+|:link:|:link:| :link: | :link: | :link:| :link: |
+|---|---|---|---|---|---|
+| [ResponseEntity](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/ResponseEntity.html) | [UriComponentsBuilder](https://www.baeldung.com/spring-uricomponentsbuilder) | [HTTP Dogs](https://http.dog/)| [Common Application Properties](https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html) | [Tipos de autenticação](https://www.alura.com.br/artigos/tipos-de-autenticacao) | [Métodos de consulta JPA](https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html)   |
+| [Auth0 jwt](https://github.com/auth0/java-jwt) | [JWT](https://jwt.io/introduction) | [Method Security](https://docs.spring.io/spring-security/reference/servlet/authorization/method-security.html) |
 ---
