@@ -15,10 +15,8 @@
 
 #### :pencil2: Service Pattern
 
--
-  -
-    -
-    -
+- um Service pode ser interpretado como Use Case (Application Service), Domain Service (possui regras do seu domínio), um Infrastructure Service (usa algum pacote externo para realizar tarefas), entre outros
+- a ideia do padrão é separar regras de negócio, regras da aplicação e regras de apresentação para que elas possam ser testadas e reutilizadas em outras partes do sistema
 
 ---
 
@@ -60,6 +58,6 @@
 
 | :link: | :link:|:link: | :link: |:link:| :link: |
 |---|---|---|---|---|---|
-| | | | | | |
+| [Java Persistence Query Language (JPQL)](https://docs.oracle.com/javaee/6/tutorial/doc/bnbtg.html) | [Design Principles and Design Patterns](https://staff.cs.utu.fi/~jounsmed/doos_06/material/DesignPrinciplesAndPatterns.pdf) | [SpringDoc](https://springdoc.org/) | [OPenAPI Initiative](https://spec.openapis.org/oas/latest.html#openapi-specification) | | |
 
 ---
