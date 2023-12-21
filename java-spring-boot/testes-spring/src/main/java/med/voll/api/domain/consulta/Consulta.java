@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import med.voll.api.domain.medico.Medico;
 import med.voll.api.domain.paciente.Paciente;
-import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 
@@ -19,7 +18,6 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(of = "id")
 public class Consulta {
 
-    @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
