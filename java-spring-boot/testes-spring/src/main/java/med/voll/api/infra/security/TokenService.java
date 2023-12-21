@@ -26,7 +26,7 @@ public class TokenService {
                     .withSubject(usuario.getLogin())
                     .withExpiresAt(dataExpiracao())
                     .sign(algoritmo);
-        } catch (JWTCreationException exception){
+        } catch (JWTCreationException exception) {
             throw new RuntimeException("erro ao gerar token jwt", exception);
         }
     }
