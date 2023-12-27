@@ -1,6 +1,8 @@
 package med.voll.api;
 
-import med.voll.api.domain.consulta.*;
+import med.voll.api.domain.consulta.AgendaDeConsultas;
+import med.voll.api.domain.consulta.DadosAgendamentoConsulta;
+import med.voll.api.domain.consulta.DadosDetalhamentoConsulta;
 import med.voll.api.domain.medico.Especialidade;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -55,21 +57,21 @@ public class ConsultaControllerTest {
         var data = LocalDateTime.now().plusHours(1);
         var especialidade = Especialidade.CARDIOLOGIA;
 
-        when(agendaDeConsultas.agendar(any())).thenReturn(new DadosDetalhamentoConsulta(null, 2l, 5l, data));
+        when(agendaDeConsultas.agendar(any())).thenReturn(new DadosDetalhamentoConsulta(null, 2L, 5L, data));
 
         var response = mvc
                 .perform(
                         post("/consultas")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(dadosAgendamentoConsultaJson.write(
-                                        new DadosAgendamentoConsulta(2l, 5l, data, especialidade)
+                                        new DadosAgendamentoConsulta(2L, 5L, data, especialidade)
                                 ).getJson())
                 )
                 .andReturn().getResponse();
 
         assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
         var jsonEsperado = dadosDetalhamentoConsultaJson.write(
-                        new DadosDetalhamentoConsulta(null, 2l, 5l, data))
+                        new DadosDetalhamentoConsulta(null, 2L, 5L, data))
                 .getJson();
 
         assertThat(response.getContentAsString()).isEqualTo(jsonEsperado);

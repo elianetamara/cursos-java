@@ -60,19 +60,19 @@ public class MedicoRepositoryTest {
         assertThat(medicoLivre).isEqualTo(medico);
     }
 
-    private void cadastraConsulta(Medico medico, Paciente paciente, LocalDateTime data){
+    private void cadastraConsulta(Medico medico, Paciente paciente, LocalDateTime data) {
         entityManager.persist(new Consulta(null, medico, paciente, data, null));
     }
 
-    private Medico cadastraMedico(String nome, String email, String crm, Especialidade especialidade){
+    private Medico cadastraMedico(String nome, String email, String crm, Especialidade especialidade) {
         Medico medico = new Medico(dadosMedico(nome, email, crm, especialidade));
-         entityManager.persist(medico);
+        entityManager.persist(medico);
         return medico;
     }
 
     private Paciente cadastraPaciente(String nome, String email, String cpf) {
         Paciente paciente = new Paciente(dadosPaciente(nome, email, cpf));
-         entityManager.persist(paciente);
+        entityManager.persist(paciente);
         return paciente;
     }
 
