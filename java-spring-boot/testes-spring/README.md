@@ -58,6 +58,6 @@
 
 | :link: | :link:|:link: | :link: |:link:| :link: |
 |---|---|---|---|---|---|
-| [Java Persistence Query Language (JPQL)](https://docs.oracle.com/javaee/6/tutorial/doc/bnbtg.html) | [Design Principles and Design Patterns](https://staff.cs.utu.fi/~jounsmed/doos_06/material/DesignPrinciplesAndPatterns.pdf) | [SpringDoc](https://springdoc.org/) | [OPenAPI Initiative](https://spec.openapis.org/oas/latest.html#openapi-specification) | | |
+| [Java Persistence Query Language (JPQL)](https://docs.oracle.com/javaee/6/tutorial/doc/bnbtg.html) | [Design Principles and Design Patterns](https://staff.cs.utu.fi/~jounsmed/doos_06/material/DesignPrinciplesAndPatterns.pdf) | [SpringDoc](https://springdoc.org/) | [OPenAPI Initiative](https://spec.openapis.org/oas/latest.html#openapi-specification) | [GraalVM Native Image](https://docs.spring.io/spring-boot/docs/current/reference/html/native-image.html) | |
 
 ---
