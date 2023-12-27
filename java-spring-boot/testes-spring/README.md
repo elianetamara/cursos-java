@@ -9,7 +9,7 @@
 
 ### :pencil: Spring
 
--
+- `@DataJpaTest`: utilizada para testar interface Repository, se concentra apenas nos componentes JPA
 
 ---
 
